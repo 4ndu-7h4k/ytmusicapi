@@ -20,6 +20,7 @@ class YTMusic(BrowsingMixin, WatchMixin, ExploreMixin, LibraryMixin, PlaylistsMi
     Permits both authenticated and non-authenticated requests.
     Authentication header data must be provided on initialization.
     """
+
     def __init__(self,
                  auth: str = None,
                  user: str = None,
@@ -100,9 +101,7 @@ class YTMusic(BrowsingMixin, WatchMixin, ExploreMixin, LibraryMixin, PlaylistsMi
         except locale.Error:
             with suppress(locale.Error):
                 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-        self.lang = gettext.translation('base',
-                                        localedir=locale_dir,
-                                        languages=[language])
+        self.lang = gettext.translation('base', localedir=locale_dir, languages=[language])
         self.parser = browsing.Parser(self.lang)
 
         if user:

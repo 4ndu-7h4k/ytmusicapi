@@ -7,6 +7,7 @@ from ytmusicapi.parsers.library import parse_albums
 
 
 class BrowsingMixin:
+
     def search(self,
                query: str,
                filter: str = None,
@@ -115,7 +116,8 @@ class BrowsingMixin:
         endpoint = 'search'
         search_results = []
         filters = [
-            'albums', 'artists', 'playlists', 'community_playlists', 'featured_playlists', 'songs', 'videos'
+            'albums', 'artists', 'playlists', 'community_playlists', 'featured_playlists', 'songs',
+            'videos'
         ]
         if filter and filter not in filters:
             raise Exception(
@@ -140,7 +142,8 @@ class BrowsingMixin:
 
         if 'tabbedSearchResultsRenderer' in response['contents']:
             tab_index = 0 if not scope or filter else scopes.index(scope) + 1
-            results = response['contents']['tabbedSearchResultsRenderer']['tabs'][tab_index]['tabRenderer']['content']
+            results = response['contents']['tabbedSearchResultsRenderer']['tabs'][tab_index][
+                'tabRenderer']['content']
         else:
             results = response['contents']
 

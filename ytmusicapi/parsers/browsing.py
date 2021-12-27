@@ -5,6 +5,7 @@ from ytmusicapi.helpers import i18n
 
 
 class Parser:
+
     def __init__(self, language):
         self.lang = language
 

@@ -2,6 +2,7 @@ import unittest
 import unittest.mock
 import configparser
 import sys
+
 sys.path.insert(0, '..')
 from ytmusicapi.ytmusic import YTMusic  # noqa: E402
 
@@ -14,6 +15,7 @@ sample_playlist = "PL6bPxvf5dW5clc3y9wAoslzqUrmkZ5c-u"  # very large playlist
 
 
 class TestYTMusic(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         cls.yt = YTMusic(requests_session=False)
@@ -55,7 +57,9 @@ class TestYTMusic(unittest.TestCase):
         self.assertGreater(len(results), 5)
         results = self.yt_auth.search("clasical music", filter='playlists', ignore_spelling=True)
         self.assertGreater(len(results), 5)
-        results = self.yt_auth.search("clasic rock", filter='community_playlists', ignore_spelling=True)
+        results = self.yt_auth.search("clasic rock",
+                                      filter='community_playlists',
+                                      ignore_spelling=True)
         self.assertGreater(len(results), 5)
         results = self.yt_auth.search("hip hop", filter='featured_playlists')
         self.assertGreater(len(results), 5)

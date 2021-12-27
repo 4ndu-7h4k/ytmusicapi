@@ -2,6 +2,7 @@ from ytmusicapi.parsers.explore import *
 
 
 class ExploreMixin:
+
     def get_mood_categories(self) -> Dict:
         """
         Fetch "Moods & Genres" categories from YouTube Music.
@@ -237,9 +238,7 @@ class ExploreMixin:
             }
 
         if has_songs:
-            charts['songs'].update({
-                'items': parse_chart(0, parse_chart_song, MRLIR)
-            })
+            charts['songs'].update({'items': parse_chart(0, parse_chart_song, MRLIR)})
 
         charts['videos']['items'] = parse_chart(1, parse_video, MTRIR)
         charts['artists']['items'] = parse_chart(2, parse_chart_artist, MRLIR)
