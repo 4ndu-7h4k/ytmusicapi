@@ -59,15 +59,7 @@ def initialize_headers():
 
 
 def initialize_context():
-    return {
-        'context': {
-            'client': {
-                'clientName': 'WEB_REMIX',
-                'clientVersion': '0.1'
-            },
-            'user': {}
-        }
-    }
+    return {'context': {'client': {'clientName': 'WEB_REMIX', 'clientVersion': '0.1'}, 'user': {}}}
 
 
 def get_visitor_id(request_func):
@@ -117,6 +109,7 @@ def to_int(string):
 
 
 def i18n(method):
+
     @wraps(method)
     def _impl(self, *method_args, **method_kwargs):
         method.__globals__['_'] = self.lang.gettext

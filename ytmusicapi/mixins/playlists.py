@@ -6,6 +6,7 @@ from ytmusicapi.parsers.playlists import *
 
 
 class PlaylistsMixin:
+
     def get_playlist(self, playlistId: str, limit: int = 100) -> Dict:
         """
         Returns a list of playlist items

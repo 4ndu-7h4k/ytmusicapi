@@ -3,6 +3,7 @@ from ytmusicapi.parsers.watch import *
 
 
 class WatchMixin:
+
     def get_watch_playlist(self,
                            videoId: str = None,
                            playlistId: str = None,

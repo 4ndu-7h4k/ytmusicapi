@@ -9,6 +9,7 @@ from ytmusicapi.parsers.uploads import *
 
 
 class UploadsMixin:
+
     def get_library_upload_songs(self, limit: int = 25, order: str = None) -> List[Dict]:
         """
         Returns a list of uploaded songs
